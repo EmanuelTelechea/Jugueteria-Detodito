@@ -1,0 +1,149 @@
+﻿<!doctype html>
+<html>
+<head><title> Juguetes </title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="dominio/memoria.js"></script>
+	<script src="dominio/objVenta.js"></script>
+</head>
+    
+<body onload="Venta.inicializar()">
+	<center>
+		<a href="index.html">Volver a la página de inicio</a>
+		<div class="izq">
+			<fieldset>
+				<form id="miFormJug">
+				<table>
+				<thead>
+					<td colspan="2" class="titulo"><h3>Juguetes</h3></td>
+				</thead>
+				
+				<tr>
+					<td>Código:</td>
+					<td><input type="text" maxLength="3"  id="jug_codigo" autofocus ></td>
+				</tr>
+				<tr>
+					<td>Nombre:</td>
+					<td><input type="text" maxLength="20" id="jug_nombre"></td>
+				</tr>
+				<tr>
+					<td>Precio:</td>
+					<td><input type="number" maxLength="5" id="jug_precio"></td>
+				</tr>
+				<tr>
+					<td>cantidad:</td>
+					<td><input type="number" maxLength="3"  id="jug_cantidad"></td>
+				</tr>	
+				
+				<tr>
+					<td colspan="2" Class="titulo">
+						<input type="button" class="boton alta" value="AGREGA" 		id="botonAlta" onclick="Venta.altaJuguete();"/>
+						<input type="button" class="boton baja" value="BAJA" 		id="botonBaja" onclick="Venta.bajaJuguete();"/>
+						<input type="button" class="boton modifica" value="MODIFICAR" 	id="botonMod"  onclick="Venta.modificarJuguete();"/>
+						<input type="reset" class="boton limpia"  value="LIMPIAR"/>
+					</td>
+				</tr>		
+				<tr>
+					<td colspan="2">
+						<select id="jug_lista" size="8" style="width: 100%" onclick="Venta.seleccionarJuguete()">
+					</td>
+				</tr>	
+		
+				</table> 
+				</form>
+				</fieldset>
+			</div>
+			<br>
+			<div onload="inicializar()" id="ventas" class="cen">
+				<fieldset>
+				<form id="miFormVen">
+				<table>
+				<thead>
+					<td colspan="2" class="titulo"><h3>Ventas</h3></td>
+				</thead>
+				
+				<tr>
+					<td>codigo:</td>
+					<td><input type="text" maxLength="3"  id="ven_codigo" ></td>
+				</tr>
+				<tr>
+					<td>Artículo:</td>
+					<td><input type="text" maxLength="10" id="ven_articulo" onblur="Venta.cargoJuguete()" >
+					<input type="text" id="ven_articulo_nombre" disabled>
+					</td>
+				</tr>
+				<tr>
+					<td>cantidad:</td>
+					<td><input type="number"  id="ven_cantidad" onblur="Venta.cargoPrecioJuguete()"></td>
+				</tr>
+				<tr>
+					<td>Precio:</td>
+					<td><input type="number"   id="ven_precio" disabled></td>
+				</tr>	
+				
+				<tr>
+					<td colspan="2" Class="titulo">
+						<input type="button" class="boton venta" value="VENTA" 		id="botonVenta" onclick="Venta.altaVenta();"/>
+						<input type="button" class="boton devolucion" value="DEVOLUCION"	id="botonDevolucion" onclick="Venta.devolucion();"/>
+						<input type="reset" class="boton limpia" value="Limpiar"/>
+					</td>
+				</tr>		 
+				
+				<tr>
+					<td colspan="2">
+						<select id="ven_lista" size="8" style="width: 100%" onclick="Venta.seleccionarVenta()">
+					</td>
+				</tr>	
+				</table> 
+				</form>
+				</fieldset>
+			</div>
+			<div class="der">
+				<fieldset>		  
+					  <tr>
+						<td>Juguete mas vendido:</td>
+						<br>
+					  	<td>
+						<input type="button" class="boton lista" value="Juguete mas vendido" 	id="botonListarJugueteMasVendido"  onclick="Venta.listarJugueteMasVendido()"/>
+						</td>
+					  </tr>
+					  <tr>
+						<td>
+							<input type="text" disabled id="JugueteMasVendido">
+							<p id="JugueteMasVendido2"></p>
+						</td>
+					  </tr>
+					  <tr>
+						<td>
+							<br>
+						</td>
+					  </tr>	
+					  <tr>
+						<td>Total dinero recaudado:</td>
+						<br>
+					  	<td>
+						<input type="button" class="boton lista" value="Dinero recaudado" 	id="botonListarTotalDinero"  onclick="Venta.calcularTotalRecaudado()"/>
+						</td>
+					  </tr>
+					  <tr>
+						<td>
+							<input type="text" disabled id="totalRecaudado">
+							<p id="totalRecaudado2"></p>
+						</td>
+					  </tr>		
+					  <tr>
+						<td>Juguetes con Stock:</td>
+						<br>
+					  	<td>
+						<input type="button" class="boton lista" value="Juguetes con stock" 	id="botonListarStock"  onclick="Venta.listarJugueteConStock()"/>
+						</td>
+					  </tr>
+					  <tr>
+						<td>
+							<p id="JuguetesConStock"></p>
+						</td>
+					  </tr>			   	   
+				</fieldset>
+			</div>
+	</center>
+</body>
+</html>
